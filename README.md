@@ -68,3 +68,14 @@ Because recursive clustering outputs an explicit, multi-scale tree structure (a 
 | **[Customer Personalization & Micro-Targeting Taxonomies](pages/customer-personalization-taxonomies.md)** | E-commerce platforms use recursive tree architectures to segment markets. High-level splits group users by raw geographical region, while deep recursive sub-branches isolate micro-cohorts based on highly specific shopping behaviors and purchase histories. | 1997 | [Database Marketing: Past, Present, and Future](https://doi.org/10.1080/10495142.1997.10753702) |
 
 ---
+
+## ⭐ Star History
+<div align="center">
+<a href="https://www.star-history.com/?repos=ishandutta2007%2FAwesome-Clustering-Algorithms&type=date&legend=bottom-right">
+<picture>
+<source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/chart?repos=ishandutta2007/Awesome-Clustering-Algorithms&type=date&theme=dark&legend=bottom-right" />
+<source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/chart?repos=ishandutta2007/Awesome-Clustering-Algorithms&type=date&legend=bottom-right" />
+<img alt="Star History Chart" src="https://api.star-history.com/chart?repos=ishandutta2007/Awesome-Clustering-Algorithms&type=date&legend=bottom-right" />
+</picture>
+</a>
+</div>
