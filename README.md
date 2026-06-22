@@ -1,11 +1,22 @@
-# Awesome-Recursive-Clustering-Algorithms
-## Recursive Clustering Algorithms: Evolution, Variants, & Applications
+<div align="center">
+  <img src="assets/banner.svg" alt="Awesome Recursive Clustering Algorithms Banner" />
+</div>
+
+<div align="center">
+  <a href="https://github.com/ishandutta2007/Awesome-Awesome-Awesome"><img src="https://img.shields.io/badge/Awesome-%E2%9C%94-blueviolet?style=flat-square&logo=github" alt="Awesome"/></a>
+  <a href="https://github.com/ishandutta2007"><img alt="GitHub followers" src="https://img.shields.io/github/followers/ishandutta2007?label=Follow" /></a>
+</div>
+
+# ✨ Awesome Recursive Clustering Algorithms
+## 🌳 Recursive Clustering Algorithms: Evolution, Variants, & Applications
+
+**SEO Keywords:** *Machine Learning, Data Science, Hierarchical Clustering, Unsupervised Learning, Big Data Analytics, Pattern Recognition, Algorithmic Clustering, Artificial Intelligence.*
 
 Recursive Clustering Algorithms systematically divide a dataset into smaller subsets, or merge smaller subsets into larger structures, by applying a clustering metric inside a nested, self-referential execution loop. Unlike flat clustering methods (such as standard $K$-means) that require a pre-defined number of clusters, recursive clustering constructs an explicit, multi-scale hierarchical tree mapping data relationships from macro-structures down to individual data points.
 
 ---
 
-## 1. The Chronological Evolution
+## ⏳ 1. The Chronological Evolution
 
 The development of recursive clustering reflects a transition from static geometric splits to graph-theoretic layouts, moving toward modern web-scale streaming data handling.
 
@@ -23,7 +34,7 @@ The development of recursive clustering reflects a transition from static geomet
 
 ---
 
-## 2. Directional Execution Variants
+## 🔄 2. Directional Execution Variants
 
 These variants define the entry point and directional flow of the recursive optimization loop.
 
@@ -34,7 +45,7 @@ These variants define the entry point and directional flow of the recursive opti
 
 ---
 
-## 3. Linkage & Distance-Update Types
+## 📏 3. Linkage & Distance-Update Types
 
 When clusters are merged or split recursively, the linkage metric dictates how the mathematical distance between two multi-point groupings is computed.
 
@@ -46,7 +57,7 @@ When clusters are merged or split recursively, the linkage metric dictates how t
 
 ---
 
-## 4. Specialized Real-World Applications
+## 🌍 4. Specialized Real-World Applications
 
 Because recursive clustering outputs an explicit, multi-scale tree structure (a Dendrogram), it is the premier choice for domains requiring explicit ancestral tracking, taxonomy, or structural routing.
 
