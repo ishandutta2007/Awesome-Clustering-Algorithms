@@ -1,4 +1,4 @@
-# Awesome-Clustering-Algorithms
+# Awesome-Recursive-Clustering-Algorithms
 ## Recursive Clustering Algorithms: Evolution, Variants, & Applications
 
 Recursive Clustering Algorithms systematically divide a dataset into smaller subsets, or merge smaller subsets into larger structures, by applying a clustering metric inside a nested, self-referential execution loop. Unlike flat clustering methods (such as standard $K$-means) that require a pre-defined number of clusters, recursive clustering constructs an explicit, multi-scale hierarchical tree mapping data relationships from macro-structures down to individual data points.
