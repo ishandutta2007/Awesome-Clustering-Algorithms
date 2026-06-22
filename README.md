@@ -15,12 +15,11 @@ The development of recursive clustering reflects a transition from static geomet
 [Modern Scaling / CURE / BIRCH](Static Proximity Matrices) (Graph Cuts & Eigenvector Matrix) (Micro-clusters & Sub-stream Trees)
 ```
 
-*   **Classic Hierarchical Clustering (AGNES / DIANA, ~1960s–1980s)**
-    *   *Concept:* The foundation. Established the bottom-up (Agglomerative) and top-down (Divisive) algorithmic pipelines using rigid distance equations (Euclidean, Manhattan).
-*   **Recursive Bi-Partitioning & Spectral Graph Cuts (~1990s–2000s)**
-    *   *Concept:* Shifted from raw Euclidean spatial distance to network topology. Data is modeled as a connected graph, and a recursive cut algorithm slices the graph along its minimum bottlenecks using Laplacian eigenvectors.
-*   **Scalable Memory-Bounded Trees (BIRCH / CURE, ~Late 1990s–Present)**
-    *   *Concept:* Built to bypass memory limitations ($O(N^2)$ bottlenecks). Introduced recursive tree-building features that compress streaming raw data into highly dense, localized multi-scale summaries.
+| Concept | Description | Year First Used | First Paper |
+|---------|-------------|-----------------|-------------|
+| **Classic Hierarchical Clustering (AGNES / DIANA)** | The foundation. Established the bottom-up (Agglomerative) and top-down (Divisive) algorithmic pipelines using rigid distance equations (Euclidean, Manhattan). | 1990 | [Finding Groups in Data](https://doi.org/10.1002/9780470316801) |
+| **Recursive Bi-Partitioning & Spectral Graph Cuts** | Shifted from raw Euclidean spatial distance to network topology. Data is modeled as a connected graph, and a recursive cut algorithm slices the graph along its minimum bottlenecks using Laplacian eigenvectors. | 2000 | [Normalized Cuts and Image Segmentation](https://doi.org/10.1109/34.868688) |
+| **Scalable Memory-Bounded Trees (BIRCH / CURE)** | Built to bypass memory limitations ($O(N^2)$ bottlenecks). Introduced recursive tree-building features that compress streaming raw data into highly dense, localized multi-scale summaries. | 1996 | [BIRCH: An Efficient Data Clustering Method for Very Large Databases](https://doi.org/10.1145/233269.233324) |
 
 ---
 
@@ -28,12 +27,10 @@ The development of recursive clustering reflects a transition from static geomet
 
 These variants define the entry point and directional flow of the recursive optimization loop.
 
-*   **Agglomerative (Bottom-Up) Clustering**
-    *   *Mechanism:* Initiates execution by treating every individual data point as its own solitary cluster. It enters a recursive loop that continuously merges the two closest clusters together until only one unified root cluster remains.
-    *   *Complexity:* High memory footprint ($O(N^2)$ complexity) due to maintaining a massive, updating proximity matrix.
-*   **Divisive (Top-Down) Clustering**
-    *   *Mechanism:* Begins with the entire dataset contained inside a single, massive root cluster. It recursively applies a flat clustering engine (like 2-way $K$-means) to split clusters into smaller segments until every data point is completely isolated.
-    *   *Pros:* Highly efficient at discovering macro-level structural boundaries early in the execution timeline.
+| Variant | Mechanism & Details | Year First Used | First Paper |
+|---------|---------------------|-----------------|-------------|
+| **Agglomerative (Bottom-Up) Clustering** | *Mechanism:* Initiates execution by treating every individual data point as its own solitary cluster. It enters a recursive loop that continuously merges the two closest clusters together until only one unified root cluster remains.<br>*Complexity:* High memory footprint ($O(N^2)$ complexity) due to maintaining a massive, updating proximity matrix. | 1958 | [A statistical method for evaluating systematic relationships](https://biostor.org/reference/11545) |
+| **Divisive (Top-Down) Clustering** | *Mechanism:* Begins with the entire dataset contained inside a single, massive root cluster. It recursively applies a flat clustering engine (like 2-way $K$-means) to split clusters into smaller segments until every data point is completely isolated.<br>*Pros:* Highly efficient at discovering macro-level structural boundaries early in the execution timeline. | 1964 | [Dissimilarity analysis: a new technique of hierarchical sub-division](https://doi.org/10.1038/2021034a0) |
 
 ---
 
@@ -41,15 +38,11 @@ These variants define the entry point and directional flow of the recursive opti
 
 When clusters are merged or split recursively, the linkage metric dictates how the mathematical distance between two multi-point groupings is computed.
 
-*   **Single Linkage (Minimum Distance)**
-    *   *Metric:* Measures the distance between the two closest individual points belonging to separate clusters.
-    *   *Limitation:* Highly prone to the **chaining effect**, where long, thin, trailing noise lines artificially bridge two completely distinct clusters together.
-*   **Complete Linkage (Maximum Distance)**
-    *   *Metric:* Measures the distance between the two furthest points belonging to separate clusters.
-    *   *Behavior:* Forces the generation of tightly packed, highly spherical cluster shapes.
-*   **Average / Ward's Linkage**
-    *   *Metric:* Computes the average distance between all pairs, or minimizes the total within-cluster variance step-by-step.
-    *   *Status:* The industry-standard choice for robust, noise-resistant recursive grouping profiles.
+| Linkage Type | Metric & Characteristics | Year First Used | First Paper |
+|--------------|--------------------------|-----------------|-------------|
+| **Single Linkage (Minimum Distance)** | *Metric:* Measures the distance between the two closest individual points belonging to separate clusters.<br>*Limitation:* Highly prone to the **chaining effect**, where long, thin, trailing noise lines artificially bridge two completely distinct clusters together. | 1951 | [Sur la liaison et la division des points d'un ensemble fini](https://eudml.org/doc/213233) |
+| **Complete Linkage (Maximum Distance)** | *Metric:* Measures the distance between the two furthest points belonging to separate clusters.<br>*Behavior:* Forces the generation of tightly packed, highly spherical cluster shapes. | 1948 | [A method of establishing groups of equal amplitude in plant sociology...](https://cir.nii.ac.jp/crid/1570854174069828224) |
+| **Average / Ward's Linkage** | *Metric:* Computes the average distance between all pairs, or minimizes the total within-cluster variance step-by-step.<br>*Status:* The industry-standard choice for robust, noise-resistant recursive grouping profiles. | 1963 | [Hierarchical Grouping to Optimize an Objective Function](https://doi.org/10.1080/01621459.1963.10500845) |
 
 ---
 
@@ -57,11 +50,10 @@ When clusters are merged or split recursively, the linkage metric dictates how t
 
 Because recursive clustering outputs an explicit, multi-scale tree structure (a Dendrogram), it is the premier choice for domains requiring explicit ancestral tracking, taxonomy, or structural routing.
 
-*   **Bioinformatics & Phylogenetic Tree Construction**
-    *   *Application:* Used to build evolutionary family trees. By calculating genetic sequence alignments across organisms, recursive clustering groups species by ancestral divergence points, mapping mutations over time.
-*   **Computer Vision & Image Segmentation Trees**
-    *   *Application:* Slices image frames into object components. Recursive spectral clustering maps pixels to a spatial graph and splits it sequentially—first separating the foreground from the background, then breaking the foreground into individual distinct objects.
-*   **Customer Personalization & Micro-Targeting Taxonomies**
-    *   *Application:* E-commerce platforms use recursive tree architectures to segment markets. High-level splits group users by raw geographical region, while deep recursive sub-branches isolate micro-cohorts based on highly specific shopping behaviors and purchase histories.
+| Application | Description | Year First Used | First Paper |
+|-------------|-------------|-----------------|-------------|
+| **Bioinformatics & Phylogenetic Tree Construction** | Used to build evolutionary family trees. By calculating genetic sequence alignments across organisms, recursive clustering groups species by ancestral divergence points, mapping mutations over time. | 1967 | [Phylogenetic Analysis: Models and Estimation Procedures](https://www.jstor.org/stable/2406616) |
+| **Computer Vision & Image Segmentation Trees** | Slices image frames into object components. Recursive spectral clustering maps pixels to a spatial graph and splits it sequentially—first separating the foreground from the background, then breaking the foreground into individual distinct objects. | 2000 | [Normalized Cuts and Image Segmentation](https://doi.org/10.1109/34.868688) |
+| **Customer Personalization & Micro-Targeting Taxonomies** | E-commerce platforms use recursive tree architectures to segment markets. High-level splits group users by raw geographical region, while deep recursive sub-branches isolate micro-cohorts based on highly specific shopping behaviors and purchase histories. | 1997 | [Database Marketing: Past, Present, and Future](https://doi.org/10.1080/10495142.1997.10753702) |
 
 ---
