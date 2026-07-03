@@ -19,16 +19,12 @@ flowchart LR
     --> D["Deep Representation Learning (VICReg / SAEs)<br/>(Learned Semantic Embedding Spaces)"]
 ```
 
-*   **The Centroid & Hard Partitioning Era (K-Means Baseline, ~1960s–1980s)**
-    *   *Concept:* The early mathematical baseline [INDEX: 4]. Algorithms like **$K$-means (1967)** partitioned data into a pre-defined number ($K$) of spherical clusters by iteratively calculating geometric averages (centroids) and assigning data points to their nearest center using Euclidean distance metrics [INDEX: 4].
-    *   *Limitation:* Rigid geometric constraints [INDEX: 4]. $K$-means assumes clusters are isotropic (spherical) and of roughly equal size, causing it to fail when encountering non-convex shapes, complex elongated contours, or variable densities.
-*   **The Hierarchical & Spatial Density Era (DBSCAN / HDBSCAN, ~1990s–2010s)**
-    *   *Concept:* Eliminated the requirement to guess cluster counts upfront [INDEX: 4]. Frameworks like **DBSCAN (1996)** redefined clustering through spatial density connectivity. By evaluating neighborhood point counts within a fixed radius ($\epsilon$), it independently tracks arbitrary, curved topological boundaries while filtering out unstructured background noise natively. This was modernized into **HDBSCAN**, which uses hierarchical linkage trees to extract clusters across varying density thresholds.
-*   **The Probabilistic Soft-Assignment Era (Gaussian Mixture Models)**
-    *   *Concept:* Addressed the limitations of "hard clustering" (where a point belongs strictly to one group). **Gaussian Mixture Models (GMM)** treat data grouping as a statistical density estimation task. By using the **Expectation-Maximization (EM)** algorithm, it fits multiple multi-dimensional Gaussian distributions to the data, assigning each point a continuous probability vector indicating its likelihood of belonging to each cluster.
-*   **The Deep Latent Manifold & Representation Era (~2020–Present)**
-    *   *Concept:* The current modern state-of-the-art production baseline engineered to cluster high-dimensional, unstructured data (such as web-scale images, text, and source code) [INDEX: 4]. It couples clustering with deep self-supervised networks [INDEX: 4].
-    *   *Significance:* Raw data passes through a foundation encoder (like CLIP or a Transformer backbone) to compress attributes into dense, low-dimensional continuous vector embeddings [INDEX: 4]. Advanced algorithms project these arrays into highly structured manifolds (via UMAP or VICReg) before grouping, or utilize overcomplete **Sparse Autoencoders (SAEs)** to cluster abstract human concepts directly within model hidden layers.
+| Era / Concept | Year First Used | Paper / Reference Link | Description |
+| :--- | :--- | :--- | :--- |
+| **The Centroid & Hard Partitioning Era (K-Means Baseline, ~1960s–1980s)** | 1967 | [MacQueen (1967)](https://projecteuclid.org/euclid.bsmsp/1200512992) | *Concept:* The early mathematical baseline [INDEX: 4]. Algorithms like **$K$-means (1967)** partitioned data into a pre-defined number ($K$) of spherical clusters by iteratively calculating geometric averages (centroids) and assigning data points to their nearest center using Euclidean distance metrics [INDEX: 4].<br/><br/>*Limitation:* Rigid geometric constraints [INDEX: 4]. $K$-means assumes clusters are isotropic (spherical) and of roughly equal size, causing it to fail when encountering non-convex shapes, complex elongated contours, or variable densities. |
+| **The Hierarchical & Spatial Density Era (DBSCAN / HDBSCAN, ~1990s–2010s)** | 1996 | [Ester et al. (1996)](https://www.aaai.org/Papers/KDD/1996/KDD96-037.pdf) | *Concept:* Eliminated the requirement to guess cluster counts upfront [INDEX: 4]. Frameworks like **DBSCAN (1996)** redefined clustering through spatial density connectivity. By evaluating neighborhood point counts within a fixed radius ($\epsilon$), it independently tracks arbitrary, curved topological boundaries while filtering out unstructured background noise natively. This was modernized into **HDBSCAN**, which uses hierarchical linkage trees to extract clusters across varying density thresholds. |
+| **The Probabilistic Soft-Assignment Era (Gaussian Mixture Models)** | 1894 | [Pearson (1894)](https://doi.org/10.1098/rsta.1894.0003) | *Concept:* Addressed the limitations of "hard clustering" (where a point belongs strictly to one group). **Gaussian Mixture Models (GMM)** treat data grouping as a statistical density estimation task. By using the **Expectation-Maximization (EM)** algorithm, it fits multiple multi-dimensional Gaussian distributions to the data, assigning each point a continuous probability vector indicating its likelihood of belonging to each cluster. |
+| **The Deep Latent Manifold & Representation Era (~2020–Present)** | 2021 | [Radford et al. (2021)](https://arxiv.org/abs/2103.00020) | *Concept:* The current modern state-of-the-art production baseline engineered to cluster high-dimensional, unstructured data (such as web-scale images, text, and source code) [INDEX: 4]. It couples clustering with deep self-supervised networks [INDEX: 4].<br/><br/>*Significance:* Raw data passes through a foundation encoder (like CLIP or a Transformer backbone) to compress attributes into dense, low-dimensional continuous vector embeddings [INDEX: 4]. Advanced algorithms project these arrays into highly structured manifolds (via UMAP or VICReg) before grouping, or utilize overcomplete **Sparse Autoencoders (SAEs)** to cluster abstract human concepts directly within model hidden layers. |
 
 ---
 
@@ -36,22 +32,12 @@ flowchart LR
 
 Clustering frameworks are strictly categorized based on the underlying mathematical strategies they use to construct group partitions across a metric space.
 
-- ### A. Partitioning Methods (Centroid-Based)
-	*   **Mechanism:** Interleaves assignment and center-calculation steps recursively [INDEX: 4]. $K$-Means++ optimizes initialization by spacing out seed centroids mathematically before running standard distance minimization loops.
-	*   **Cons:** Struggles with overlapping or highly non-spherical data boundaries [INDEX: 4].
-
-- ### B. Density-Based Methods (Spatial Connectivity)
-	*   **Mechanism:** Scans data spaces based on core, border, and noise point definitions. DBSCAN connects adjacent high-density clusters, while filtering out low-density points as absolute system outliers.
-	*   **Pros:** Exceptionally robust at identifying highly complex, irregular geometric shapes (such as interlocking rings or crescent arcs).
-
-- ### C. Distribution-Based Methods (Probabilistic Soft Clustering)
-	*   **Mechanism:** Models the global dataset as a mixture of distinct, overlapping statistical distributions (e.g., Gaussian Mixture Models).
-	*   **Pros:** Captures multi-faceted cluster boundaries and overlapping data fields accurately, providing clear confidence metrics per data point.
-
-- ### D. Hierarchical Clustering (Linkage Trees)
-	*   **Mechanism:** Builds a nested tree structure (a **Dendrogram**). 
-	    1.  *Agglomerative:* Bottom-up approach where every point starts as its own cluster, and adjacent pairs merge sequentially based on linkage criteria (Ward's, single, average).
-	    2.  *Divisive:* Top-down approach where the entire dataset is split recursively.
+| Method Type | Year First Used | Paper / Reference Link | Mechanism / Pros / Cons |
+| :--- | :--- | :--- | :--- |
+| **A. Partitioning Methods (Centroid-Based)** | 1967 | [MacQueen (1967)](https://projecteuclid.org/euclid.bsmsp/1200512992) | **Mechanism:** Interleaves assignment and center-calculation steps recursively [INDEX: 4]. $K$-Means++ optimizes initialization by spacing out seed centroids mathematically before running standard distance minimization loops.<br/><br/>**Cons:** Struggles with overlapping or highly non-spherical data boundaries [INDEX: 4]. |
+| **B. Density-Based Methods (Spatial Connectivity)** | 1996 | [Ester et al. (1996)](https://www.aaai.org/Papers/KDD/1996/KDD96-037.pdf) | **Mechanism:** Scans data spaces based on core, border, and noise point definitions. DBSCAN connects adjacent high-density clusters, while filtering out low-density points as absolute system outliers.<br/><br/>**Pros:** Exceptionally robust at identifying highly complex, irregular geometric shapes (such as interlocking rings or crescent arcs). |
+| **C. Distribution-Based Methods (Probabilistic Soft Clustering)** | 1894 | [Pearson (1894)](https://doi.org/10.1098/rsta.1894.0003) | **Mechanism:** Models the global dataset as a mixture of distinct, overlapping statistical distributions (e.g., Gaussian Mixture Models).<br/><br/>**Pros:** Captures multi-faceted cluster boundaries and overlapping data fields accurately, providing clear confidence metrics per data point. |
+| **D. Hierarchical Clustering (Linkage Trees)** | 1951 | [Florek et al. (1951)](https://eudml.org/doc/218680) | **Mechanism:** Builds a nested tree structure (a **Dendrogram**).<br/>1. *Agglomerative:* Bottom-up approach where every point starts as its own cluster, and adjacent pairs merge sequentially based on linkage criteria (Ward's, single, average).<br/>2. *Divisive:* Top-down approach where the entire dataset is split recursively. |
 
 ---
 
@@ -71,10 +57,10 @@ flowchart LR
     end
 ```
 
-*   **Manifold Learning Alignment Layers**
-    *   *Profile:* Slashes the Curse of Dimensionality. High-dimensional vector spaces (e.g., a 1536-dimension text embedding) are notoriously difficult to cluster because Euclidean distances become equidistant in extreme dimensions. Manifold layers (t-SNE/UMAP) preserve local and global geometric topologies while compressing arrays down to dense 2D/3D spaces where distance math remains highly descriptive.
-*   **Variance-Covariance Regularization (VICReg Blocks)**
-    *   *Profile:* Prevents representation collapse [INDEX: 4]. Forces the deep encoder to distribute its features evenly across latent channels during unsupervised pre-training, ensuring downstream clustering algorithms receive highly distinctive, un-correlated parameters.
+| Technique | Year First Used | Paper / Reference Link | Profile / Significance |
+| :--- | :--- | :--- | :--- |
+| **Manifold Learning Alignment Layers** | 2008 | [van der Maaten & Hinton (2008)](https://www.jmlr.org/papers/volume9/vandermaaten08a/vandermaaten08a.pdf) | *Profile:* Slashes the Curse of Dimensionality. High-dimensional vector spaces (e.g., a 1536-dimension text embedding) are notoriously difficult to cluster because Euclidean distances become equidistant in extreme dimensions. Manifold layers (t-SNE/UMAP) preserve local and global geometric topologies while compressing arrays down to dense 2D/3D spaces where distance math remains highly descriptive. |
+| **Variance-Covariance Regularization (VICReg Blocks)** | 2021 | [Bardes et al. (2022)](https://arxiv.org/abs/2105.04906) | *Profile:* Prevents representation collapse [INDEX: 4]. Forces the deep encoder to distribute its features evenly across latent channels during unsupervised pre-training, ensuring downstream clustering algorithms receive highly distinctive, un-correlated parameters. |
 
 ---
 
@@ -82,23 +68,20 @@ flowchart LR
 
 Deploying large-scale clustering runs across massive enterprise database nodes introduces intense memory bus bottlenecks and time complexity penalties.
 
-*   **The Quadratic Distance Calculation and Memory Wall**
-    *   *The Problem:* Classical clustering algorithms require computing a massive, global **pairwise distance matrix** across all data points ($O(N^2)$ space complexity). For databases holding tens of millions of records, this creates a catastrophic memory explosion that saturates server RAM and crashes computing clusters.
-    *   *Mitigation:* Implementing **Approximate Nearest Neighbors (ANN) vector indexing** (such as HNSW or Inverted File Indexing - IVF), quantizing continuous vectors down into discrete sub-vectors to execute billions of distance checks inside GPU SRAM registers instantly.
-*   **The Outlier Noise and Boundary Distortion Stagnation**
-    *   *The Problem:* Real-world commercial data streams contain massive amounts of noisy, un-correlated rows. If forced into rigid partitioning frameworks like $K$-means, these outliers pull centroids away from their true geometric centers, distorting the classification accuracy of valid clusters.
-    *   *Mitigation:* Shifting infrastructure pipelines toward **Density-Based or Medoid-Based algorithms (PAM / DBSCAN)**, which treat outliers as explicit un-clustered system noise, protecting core centroid positions perfectly.
+| Challenge | Year First Used | Paper / Reference Link | Details & Mitigation |
+| :--- | :--- | :--- | :--- |
+| **The Quadratic Distance Calculation and Memory Wall** | 2016 | [Malkov & Yashunin (2016)](https://arxiv.org/abs/1603.09320) | *The Problem:* Classical clustering algorithms require computing a massive, global **pairwise distance matrix** across all data points ($O(N^2)$ space complexity). For databases holding tens of millions of records, this creates a catastrophic memory explosion that saturates server RAM and crashes computing clusters.<br/><br/>*Mitigation:* Implementing **Approximate Nearest Neighbors (ANN) vector indexing** (such as HNSW or Inverted File Indexing - IVF), quantizing continuous vectors down into discrete sub-vectors to execute billions of distance checks inside GPU SRAM registers instantly. |
+| **The Outlier Noise and Boundary Distortion Stagnation** | 1990 | [Kaufman & Rousseeuw (1990)](https://doi.org/10.1002/9780470316801) | *The Problem:* Real-world commercial data streams contain massive amounts of noisy, un-correlated rows. If forced into rigid partitioning frameworks like $K$-means, these outliers pull centroids away from their true geometric centers, distorting the classification accuracy of valid clusters.<br/><br/>*Mitigation:* Shifting infrastructure pipelines toward **Density-Based or Medoid-Based algorithms (PAM / DBSCAN)**, which treat outliers as explicit un-clustered system noise, protecting core centroid positions perfectly. |
 
 ---
 
 ## 5. Frontier Real-World AI Applications
 
-*   **Enterprise Cyber-Security & Fraud Network Anomaly Tracking**
-    *   *Application:* Screens millions of high-frequency banking logs and system transaction inputs continuously. Unsupervised density-based clustering and deep autoencoding layers model standard customer interaction fields; the system instantly flags and isolates money laundering or cyber-attacks if an execution vector maps to an un-indexed, low-density outlier cluster.
-*   **Open-Vocabulary E-Commerce Product Catalog Ingestion**
-    *   *Application:* Processes millions of incoming multi-modal merchant inventory listings daily. Rather than writing manual text categorization rules, listing graphics and descriptions pass through CLIP image-text encoders. Manifold clustering algorithms group the resulting vectors automatically, sorting products into semantically coherent, dynamic taxonomy branches on-the-fly.
-*   **Industrial Bio-Informatics & Genomic Sequencing Discoveries**
-    *   *Application:* Maps unannotated DNA, RNA, or protein peptide chains spanning billions of data elements. Unsupervised hierarchical linkage trees and distribution mixture models group complex biological sequences by geometric structure, accelerating target-specific de novo drug discovery and tracking viral mutations with high precision.
+| Application Domain | Year First Used | Paper / Reference Link | Application Details |
+| :--- | :--- | :--- | :--- |
+| **Enterprise Cyber-Security & Fraud Network Anomaly Tracking** | 2001 | [Portnoy et al. (2001)](https://academiccommons.columbia.edu/doi/10.7916/D8F76MZ5) | *Application:* Screens millions of high-frequency banking logs and system transaction inputs continuously. Unsupervised density-based clustering and deep autoencoding layers model standard customer interaction fields; the system instantly flags and isolates money laundering or cyber-attacks if an execution vector maps to an un-indexed, low-density outlier cluster. |
+| **Open-Vocabulary E-Commerce Product Catalog Ingestion** | 2021 | [Radford et al. (2021)](https://arxiv.org/abs/2103.00020) | *Application:* Processes millions of incoming multi-modal merchant inventory listings daily. Rather than writing manual text categorization rules, listing graphics and descriptions pass through CLIP image-text encoders. Manifold clustering algorithms group the resulting vectors automatically, sorting products into semantically coherent, dynamic taxonomy branches on-the-fly. |
+| **Industrial Bio-Informatics & Genomic Sequencing Discoveries** | 1957 | [Sneath (1957)](https://doi.org/10.1099/00221287-17-1-184) | *Application:* Maps unannotated DNA, RNA, or protein peptide chains spanning billions of data elements. Unsupervised hierarchical linkage trees and distribution mixture models group complex biological sequences by geometric structure, accelerating target-specific de novo drug discovery and tracking viral mutations with high precision. |
 
 ---
 
