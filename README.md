@@ -12,7 +12,11 @@ Over the history of artificial intelligence, clustering has evolved from rigid, 
 The technical framework governing automated data grouping has transitioned from rigid centroid partitioning to hierarchical trees, density-based boundary tracking, and modern self-supervised deep embedding spaces.
 
 ```mermaid
-[Centroid Partitioning (K-Means, 1967)] ───> [Density Connectivity (DBSCAN, 1996)] ───> [Probabilistic Soft Clustering (GMM)] ───> [Deep Manifold Learning (VICReg/SAEs)](Rigid Spherical Shape Constraints)          (Arbitrary Contour Boundary Tracking)          (Continuous Gaussian Distribution Mixes)        (Monosemantic Latent Feature Projections)
+flowchart LR
+    A["Centroid Partitioning (K-Means, 1967)<br/>(Spherical Centroid-Based Clustering)"]
+    --> B["Density-Based Clustering (DBSCAN, 1996)<br/>(Arbitrary-Shape Density Connectivity)"]
+    --> C["Probabilistic Soft Clustering (Gaussian Mixture Models)<br/>(Gaussian Mixture Density Estimation)"]
+    --> D["Deep Representation Learning (VICReg / SAEs)<br/>(Learned Semantic Embedding Spaces)"]
 ```
 
 *   **The Centroid & Hard Partitioning Era (K-Means Baseline, ~1960s–1980s)**
@@ -56,7 +60,15 @@ Clustering frameworks are strictly categorized based on the underlying mathemati
 To parse and cluster high-dimensional arrays cleanly without hitting computational walls, modern enterprise pipelines project features onto low-dimensional manifolds.
 
 ```mermaid
-Deep Embedding Clustering Pipeline[Raw Unstructured Data] ───> [Foundation Encoder (CLIP/ViT)] ───> [High-Dimensional Vectors]│▼[Actionable Data Insights] <── [Density Clustering (HDBSCAN)] <── [Manifold Projection (UMAP)]
+flowchart LR
+    subgraph P["Deep Embedding Clustering Pipeline"]
+        A["Raw Unstructured Data"]
+        --> B["Foundation Encoder<br/>(CLIP / ViT)"]
+        --> C["High-Dimensional Embeddings"]
+        --> D["Manifold Projection<br/>(UMAP)"]
+        --> E["Density Clustering<br/>(HDBSCAN)"]
+        --> F["Actionable Data Insights"]
+    end
 ```
 
 *   **Manifold Learning Alignment Layers**
