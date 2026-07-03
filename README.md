@@ -115,5 +115,17 @@ Before updating this documentation layout, let me know how you would like to pro
 * I can provide a **complete Python code boilerplate using PyTorch** demonstrating how to write a manual $K$-means centroid update loop from scratch.
 * I can generate a **Markdown matrix table** tracking the explicit hyperparameter bounds, distance metrics, and scaling constraints utilized by leading industrial platforms to cluster massive production log data.
 * I can write a detailed technical explanation focusing on the **mathematics of the Expectation-Maximization (EM) algorithm** and how log-likelihood scaling governs convergence.
+
+## Star History
+<div align="center">
+<a href="https://www.star-history.com/?repos=ishandutta2007%2FAwesome-Clustering-Algorithms&type=date&legend=bottom-right">
+<picture>
+<source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/chart?repos=ishandutta2007/Awesome-Clustering-Algorithms&type=date&theme=dark&legend=bottom-right" />
+<source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/chart?repos=ishandutta2007/Awesome-Clustering-Algorithms&type=date&legend=bottom-right" />
+<img alt="Star History Chart" src="https://api.star-history.com/chart?repos=ishandutta2007/Awesome-Clustering-Algorithms&type=date&legend=bottom-right" />
+</picture>
+</a>
+</div>
+
 1 siteClustering — Beyonds KMeans+PCA…. Perhaps the most popular way of… | by Shahar Gino | Medium14 Jul 2023 — Common shallow-learning algorithms are K-Means, Hierarchical Clustering, Expectation-Maximization (EM) and Density-Based Spatial C...Medium
 
