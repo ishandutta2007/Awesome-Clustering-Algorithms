@@ -1,8 +1,12 @@
 # 🚀 Awesome Clustering Algorithms
 
+<a href="https://github.com/ishandutta2007/Awesome-Awesome-Awesome"><img src="https://img.shields.io/badge/Awesome-%E2%9C%94-blueviolet?style=flat-square&logo=github" alt="Awesome"/></a><a href="https://discord.gg/jc4xtF58Ve"><img src="https://img.shields.io/badge/Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white" alt="Discord" /></a>
+
 ![Awesome Clustering Algorithms Banner](assets/banner.svg)
 
 ## 📊 Clustering Algorithms in AI: History, Progression, Variants, & Applications
+
+**Clustering Algorithms** form the backbone of **unsupervised machine learning** and data science. This repository offers a curated guide detailing the evolution from classical distance-based partitioning to modern deep representation clustering networks.
 
 Clustering is a foundational unsupervised machine learning paradigm designed to partition an unlabelled dataset into distinct groups (clusters) based on intrinsic feature similarities and geometric densities [INDEX: 4]. Unlike supervised classification models that rely on human-annotated target labels, clustering algorithms explore raw multidimensional spaces independently to minimize intra-cluster distance (keeping items within a group close together) while maximizing inter-cluster distance (separating groups from each other) [INDEX: 4]. 
 
